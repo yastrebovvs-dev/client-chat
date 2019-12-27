@@ -1,0 +1,16 @@
+<div class="login-body">
+  <div class="flip">
+    <div class="card"
+    [ngClass]="{ active: cardActive }">
+      <app-form-auth class="card-face front"
+      *ngIf="!animationWaiting"
+      (onFlipAuth)="flipCard()">
+      </app-form-auth>
+      <app-form-registration class="card-face back"
+      *ngIf="animationWaiting">
+      </app-form-registration>
+    </div>
+  </div>
+</div>
+
+<!-- (onFlipRegis)="flipCard()" -->

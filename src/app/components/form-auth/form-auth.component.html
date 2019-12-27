@@ -1,0 +1,42 @@
+<div class="container">
+    <form  class="auth"
+    [formGroup]="authForm"
+    (ngSubmit)="authorize()">
+        <p class="auth__title">Authorization</p>
+        <mat-form-field class="auth__field">
+            <input matInput
+            placeholder="Your email"
+            formControlName="email"
+            required>
+            <mat-error *ngIf="authForm.invalid">
+                {{ getErrMsgEmail() }}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="auth__field">
+            <input matInput
+            placeholder="Your password"
+            formControlName="password"
+            type="password"
+            required>
+            <mat-error *ngIf="authForm.invalid">
+                {{ getErrMsgPassword() }}
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button
+        class="auth__button"
+        [disabled]="!authForm.valid"
+        color="primary"
+        type="submit">
+            Login
+        </button>
+        <!-- <span *ngIf="this.websocketService.getMessage()">
+            {{this.websocketService.message}}
+        </span> -->
+    </form>
+    <button mat-button
+    class="auth__button"
+    color="primary"
+    (click)="flip()">
+        Go to registration
+    </button>
+</div>

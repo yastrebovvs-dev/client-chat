@@ -1,0 +1,52 @@
+<div class="container">
+    <form class="reg"
+    [formGroup]="regForm"
+    (ngSubmit)="register()">
+        <p class="reg__title">Registration</p>
+        <mat-form-field class="reg__field">
+            <input matInput
+            placeholder="Confirm password"
+            formControlName="name"
+            type="name"
+            required>
+            <mat-error *ngIf="regForm.invalid">
+                {{ getErrMsgName() }}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="reg__field">
+            <input matInput
+            placeholder="Enter email"
+            formControlName="email"
+            required>
+            <mat-error *ngIf="regForm.invalid">
+                {{ getErrMsgEmail() }}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="reg__field">
+            <input matInput
+            placeholder="Enter password"
+            formControlName="password"
+            type="password"
+            required>
+            <mat-error *ngIf="regForm.invalid">
+                {{ getErrMsgPassword() }}
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button
+        class="reg__button"
+        [disabled]="!regForm.valid"
+        color="primary"
+        type="submit">
+            Register
+        </button>
+        <!-- <span *ngIf="this.websocketService.getMessage()">
+            {{this.websocketService.message}}
+        </span> -->
+    </form>
+    <button mat-button
+    class="reg__button"
+    color="primary"
+    (click)="flip()">
+        Go to login
+    </button>
+</div>
