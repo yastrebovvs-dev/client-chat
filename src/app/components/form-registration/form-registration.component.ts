@@ -17,16 +17,17 @@ export class FormRegistrationComponent{
   })
   
   getErrMsgName() {
-    return this.regForm.controls.name.hasError('required') ? 'You must enter a value' : 'qwe';
+    return this.regForm.controls.name.hasError('required') ? 'You must enter a value' : '';
   }
 
   getErrMsgEmail() {
     return this.regForm.controls.email.hasError('required') ? 'You must enter a value' :
-      this.regForm.controls.email.hasError('pattern') ? 'minimal length 6 charset' : '';
+      this.regForm.controls.email.hasError('pattern') ? 'Not a valid email' : '';
   }
 
   getErrMsgPassword() {
-    return this.regForm.controls.password.hasError('required') ? 'You must enter a value' : 'minimal length 6 charset';
+    return this.regForm.controls.password.hasError('required') ? 'You must enter a value' : 
+      this.regForm.controls.password.hasError('pattern') ? 'minimal length 6 charset' : '';
   }
 
   register(){
